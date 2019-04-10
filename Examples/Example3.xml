@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<vxml version = "2.1" >  
+<vxml version= "2.1" >  
   <menu id="menu1" dtmf="true">
    <prompt>select 1 for ICT4D or 2 for some other, less interesting course</prompt>
    <choice next="#form1"/>
