@@ -1,0 +1,39 @@
+<vxml version="2.1">
+<form id="MainMenu">
+<field name="teamNames">
+<prompt> Please say your favorite team member in group 6. </prompt>
+ <!--  define grammer  -->
+<grammar xml:lang="en-us" root="myrule">
+<rule id="myrule">
+<one-of>
+<item> Patrick </item>
+<item> Marit </item>
+<item> Bob </item>
+</one-of>
+</rule>
+</grammar>
+ <!--  the user was silent  -->
+<noinput>
+I did not hear anything. Please try again.
+<reprompt/>
+</noinput>
+ <!--  something was not listed  -->
+<nomatch>
+Sorry not in the list.
+<repromt/>
+</nomatch>
+</field>
+ <!--  check characters  -->
+<filled namelist="teamNames">
+<if cond="teamNames == 'Patrick'">
+<prompt>Patrick is awesome.</prompt>
+<elseif cond="teamNames == 'Marit'"/>
+<prompt>Marit is the queen.</prompt>
+<elseif cond="teamNames == 'Bob'"/>
+<prompt>Who is Bob? </prompt>
+<else/>
+<prompt>No one</prompt>
+</if>
+</filled>
+</form>
+</vxml>
