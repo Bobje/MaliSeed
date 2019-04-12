@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version="2.1" xmlns="http://www.w3.org/2001/vxml" xml:lang="en-us">
+
 	<!-- add code here -->
 	<menu id="menu1" dtmf="true">
 		<prompt>
 		Welcome!
-		<break time="1.0s"/> 
-		to the Mali Seed Offerview, to sell your products.
+		<break time="0.75s"/> 
+		to the Mali Seed system, to sell your products.
 		<break time="1.0s"/>  
 		Press 1 if you are selling rice.
 		Press 2 if you are selling mais. 
@@ -20,7 +21,7 @@
 		I'm sorry
 		<break time="1.0s"/>  
 		The number you typed in is not in the list.
-		<break time="1.0s"/>  
+		<break time="0.75s"/>  
 		Please try again.
 		<reprompt/>
 		</noinput>
@@ -33,18 +34,60 @@
 	</menu>
 
 	<form id="form1">
-		<block>
-		<prompt>
-			Type in how many kilograms of rice you will sell.
-		</prompt>
-		</block>
+		<field name="amountRice" type="digits">
+			<prompt count="1">
+				How many kilograms of rice do you want to sell?
+				Please enter the number.
+			</prompt>
+			<noinput>
+				I did not hear anything. Please try again.
+			<reprompt/>
+			</noinput>
+			<prompt count="2">
+				Please enter the number or say the number you would like to sell. 
+			</prompt>
+			<filled>
+				You entered <value expr="amountRice" /> kilograms you would like to sell. 
+			</filled>
+				<prompt count="3">
+					Is this correct? 
+					<break time="0.30s"/> 
+					<filled>
+						<value expr="amountRice" />?
+					</filled>
+					Press 1 for Yes.
+					Press 2 for No.
+				</prompt>
+				<choice dtmf="1" next=""/>
+				<choice dtmf="2" next=""/>
+		</field>
 	</form>
 
 	<form id="form2">
-		<block>
-		<prompt>
-			Type in how many kilograms of mais this seed you will sell.
-		</prompt>
-		</block>
+		<field name="amountMais" type="digits">
+			<prompt count="1">
+				How many kilograms of rice do you want to sell?
+				Please enter the number.
+			</prompt>
+			<noinput>
+				I did not hear anything. Please try again.
+			<reprompt/>
+			</noinput>
+			<prompt count="2">
+				Please enter the number or say the number you would like to sell. 
+			</prompt>
+			<filled>
+				You entered <value expr="amountMais" /> kilograms you would like to sell. 
+			</filled>
+			<prompt count="3">
+				Is this correct?
+				<break time="0.30s"/> 
+				Press 9 for Yes.
+				Press 0 for No.
+			</prompt>
+			<choice dtmf="9" next=""/>
+			<choice dtmf="0" next=""/>
+		</field>
 	</form>
+
 </vxml>
