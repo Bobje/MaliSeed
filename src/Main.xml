@@ -43,23 +43,18 @@
 				I did not hear anything. Please try again.
 			<reprompt/>
 			</noinput>
-			<prompt count="2">
-				Please enter the number or say the number you would like to sell. 
-			</prompt>
 			<filled>
 				You entered <value expr="amountRice" /> kilograms you would like to sell. 
 			</filled>
-				<prompt count="3">
-					Is this correct? 
-					<break time="0.30s"/> 
-					<filled>
-						<value expr="amountRice" />?
-					</filled>
-					Press 1 for Yes.
-					Press 2 for No.
-				</prompt>
-				<choice dtmf="1" next=""/>
-				<choice dtmf="2" next=""/>
+			<prompt count="2">
+				Is this correct? 
+				<break time="0.30s"/> 
+				<filled>
+					<value expr="amountRice" />?
+				</filled>
+				Press 1 for Yes.
+				Press 2 for No.
+			</prompt>
 		</field>
 	</form>
 
@@ -89,5 +84,4 @@
 			<choice dtmf="0" next=""/>
 		</field>
 	</form>
-
 </vxml>
